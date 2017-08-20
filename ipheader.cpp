@@ -1,7 +1,9 @@
 #include "ipheader.h"
 
 string IpHeader::ToString() {
-    ostringstream stream;
-    stream << "ver=";
+    stringstream stream;
+    stream << " ver=" << ByteH(ver_len_)
+           << " hlen=" << ByteL(ver_len_)
+           << " tos=" << tos_;
     return stream.str();
 }

@@ -1,8 +1,8 @@
 #ifndef IPHEADER_H
 #define IPHEADER_H
-s
+
 #include <string>
-#include <ostream>
+#include <sstream>
 using namespace std;
 
 class IpHeader
@@ -19,8 +19,11 @@ class IpHeader
     unsigned long  dest_;
     unsigned short *params_;
     unsigned char  *data_;
+
+    char ByteH(char c) { return c & 0xF; }
+    char ByteL(char c) { return c >> 4; }
+
 public:
-    IpHeader();
     string ToString();
 };
 
