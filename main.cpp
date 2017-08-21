@@ -1,9 +1,16 @@
 #include <iostream>
+#include "rawsocket.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    RawSocket *raw_socket = new RawSocket();
+    while (true) {
+        IpHeader *header = raw_socket->Sniff();
+        if (header){
+            cout << header->ToString();
+        }
+    }
     return 0;
 }
