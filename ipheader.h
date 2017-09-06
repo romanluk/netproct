@@ -3,6 +3,7 @@
 
 #include <string>
 #include <sstream>
+#include <winsock.h>
 using namespace std;
 
 class IpHeader
@@ -21,10 +22,9 @@ class IpHeader
     unsigned char protocol_;          // Underlaying protocol (TCP, UDP...)
     unsigned short checksum_;         //Checksum
     unsigned int srcaddr_;            //source address
-    unsigned int destadd_r;           //destination addresss
+    unsigned int destaddr_;           //destination addresss
 
-    char ByteH(char c) { return c & 0xF; }
-    char ByteL(char c) { return c >> 4; }
+    string UnsignedIpToString (unsigned int ip);
 
 public:
     string ToString();
