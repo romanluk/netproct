@@ -9,7 +9,7 @@ int main()
     while (true) {
         IpHeader *header = raw_socket->Sniff();
         if (header){
-            cout << header->ToString();
+            cout << header->ToString() << "\n";
         }
     }
     return 0;
